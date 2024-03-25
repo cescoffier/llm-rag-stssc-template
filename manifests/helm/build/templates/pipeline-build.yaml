@@ -61,6 +61,10 @@ spec:
       taskRef:
         kind: ClusterTask
         name: maven
+      params:
+        - name: GOALS
+          value: package -DskipTests
+      runAfter:  
       workspaces:
         - name: source
           workspace: source-folder

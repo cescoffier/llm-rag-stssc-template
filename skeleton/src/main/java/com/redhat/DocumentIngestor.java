@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.List;
 
 @ApplicationScoped
-public class IngestorExample {
+public class DocumentIngestor {
 
     /**
      * The embedding store (the database).
@@ -35,15 +35,13 @@ public class IngestorExample {
         System.out.printf("Ingesting documents...%n");
 
         
-        // List<Document> documents = FileSystemDocumentLoader.loadDocuments(new File("src/main/resources/bank").toPath(),
-        // List<Document> documents = FileSystemDocumentLoader.loadDocuments(new File("src/main/resources/museum").toPath(),
-        // List<Document> documents = FileSystemDocumentLoader.loadDocuments(new File("src/main/resources/halffoods").toPath(),
+        // List<Document> documents = FileSystemDocumentLoader.loadDocuments(new File("src/main/resources/bank").toPath(),    
         List<Document> documents = FileSystemDocumentLoader.loadDocuments(new File("src/main/resources/insurance").toPath(),
                 new TextDocumentParser());
         var ingestor = EmbeddingStoreIngestor.builder()
                 .embeddingStore(store)
                 .embeddingModel(embeddingModel)
-                .documentSplitter(recursive(500, 0))
+                .documentSplitter(recursive(150, 30))
                 .build();
         ingestor.ingest(documents);
         System.out.printf("Ingested %d documents.%n", documents.size());

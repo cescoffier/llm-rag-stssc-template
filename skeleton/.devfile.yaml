@@ -16,7 +16,7 @@ components:
         - name: m2
           path: /home/user/.m2
       endpoints:
-        - name: spring-dev
+        - name: quarkus-dev
           targetPort: 8080
           exposure: public
           secure: false
@@ -40,7 +40,7 @@ commands:
     exec:
       label: "1. Package the application"
       component: development-tooling
-      commandLine: "./mvnw package"
+      commandLine: "./mvnw package -DskipTests"
       group:
         kind: build
         isDefault: true
@@ -48,7 +48,7 @@ commands:
     exec:
       label: "2. Start Development mode (Hot reload + debug)"
       component: development-tooling
-      commandLine: "./mvnw compile spring:dev"
+      commandLine: "./mvnw quarkus:dev -DskipTests"
       group:
         kind: run
         isDefault: true

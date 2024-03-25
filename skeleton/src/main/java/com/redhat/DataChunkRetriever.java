@@ -9,12 +9,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
 
 @ApplicationScoped
-public class RetrieverExample implements Retriever<TextSegment> {
+public class DataChunkRetriever implements Retriever<TextSegment> {
 
     private final EmbeddingStoreRetriever retriever;
 
-    RetrieverExample(RedisEmbeddingStore store, EmbeddingModel model) {
-        retriever = EmbeddingStoreRetriever.from(store, model, 20);
+    DataChunkRetriever(RedisEmbeddingStore store, EmbeddingModel model) {
+        retriever = EmbeddingStoreRetriever.from(store, model, 10);
     }
 
     @Override
