@@ -62,8 +62,8 @@ spec:
         kind: ClusterTask
         name: maven
       params:
-        - name: GOALS
-          value: package -DskipTests
+      - name: GOALS
+        value: package -DskipTests
       runAfter:  
       workspaces:
         - name: source
