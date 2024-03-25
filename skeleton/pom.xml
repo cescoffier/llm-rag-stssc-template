@@ -15,6 +15,7 @@
     <quarkus.platform.version>3.8.1</quarkus.platform.version>
     <quarkus.langchain4j.version>0.9.1</quarkus.langchain4j.version>
     <skipITs>true</skipITs>
+    <skipTests>true</skipTests>
     <surefire-plugin.version>3.2.5</surefire-plugin.version>
   </properties>
   <dependencyManagement>

@@ -60,10 +60,7 @@ spec:
         - git-clone
       taskRef:
         kind: ClusterTask
-        name: maven
-      params:
-      - name: GOALS
-        value: package -DskipTests
+        name: maven      
       runAfter:  
       workspaces:
         - name: source

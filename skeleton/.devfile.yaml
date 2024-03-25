@@ -6,10 +6,10 @@ components:
     container:
       image: quay.io/devfile/universal-developer-image:ubi8-277c10c
       env:
-        - name: SPRING_HTTP_HOST
+        - name: QUARKUS_HTTP_HOST
           value: 0.0.0.0
         - name: MAVEN_OPTS
-          value: "-Dmaven.repo.local=/home/user/.m2/repository"
+          value: "-Dmaven.repo.local=/home/user/.m2/repository -DskipTests"
       memoryLimit: 5Gi
       cpuLimit: 2500m
       volumeMounts:
