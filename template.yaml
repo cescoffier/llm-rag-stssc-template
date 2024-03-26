@@ -20,7 +20,7 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: my-ai-app
+          default: my-rag-app
           ui:field: EntityNamePicker
           maxLength: 14
         group_id:
@@ -42,7 +42,29 @@ spec:
           title: Description
           type: string
           description: Help others understand what this website is for.
-          default: A cool AI app
+          default: Enterprise AI-infused application example  
+    - title: Application repository Information
+      required:
+        - repo
+      properties:
+        repo:
+          title: Repository Location
+          type: object
+          properties:
+            host:
+              title: Repo Host
+              type: string
+              description: Your SCM host
+              default: gitlab-gitlab.apps.cluster-fz7mz.sandbox2631.opentlc.com
+              enum:
+                - gitlab-gitlab.apps.cluster-fz7mz.sandbox2631.opentlc.com
+            owner:
+              title: Repo Owner
+              type: string
+              description: Your SCM host organization/group
+              default: development
+              enum:
+                - development
     - title: Provide Image Registry Information
       required:
         - image_registry
@@ -74,6 +96,7 @@ spec:
                 image_registry:
                   enum:
                     - Quay
+                  default: Quay  
                 image_host:
                   title: Image Host
                   type: string
@@ -89,29 +112,6 @@ spec:
                   default: latest
                   type: string
                   description: Build Image tag
-    - title: Application repository Information
-      required:
-        - repo
-      properties:
-        repo:
-          title: Repository Location
-          type: object
-          properties:
-            host:
-              title: Repo Host
-              type: string
-              description: Your SCM host
-              default: gitlab-gitlab.apps.cluster-fz7mz.sandbox2631.opentlc.com
-              enum:
-                - gitlab-gitlab.apps.cluster-fz7mz.sandbox2631.opentlc.com
-            owner:
-              title: Repo Owner
-              type: string
-              description: Your SCM host organization/group
-              default: development
-              enum:
-                - development
-
   steps:
     - id: template
       name: Fetch Skeleton + Template
