@@ -54,7 +54,7 @@ spec:
           - name: policy-configuration
             value: 'git::github.com/enterprise-contract/config//default'
           - name: rekor-host
-            value: http://rekor-server.rekor-system.svc.cluster.local
+            value: http://rekor-server.trusted-artifact-signer.svc.cluster.local
         pipelineRef:
           name: {{ .Values.app.name }}-promote
         serviceAccountName: image-pusher
